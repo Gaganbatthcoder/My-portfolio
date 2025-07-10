@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #e6f2ff, #dbefff);
+      color: #333;
+      padding: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .dark-mode {
+      background: #1c1c1c;
+      color: #f2f2f2;
+    }
+
+    header {
+      background-color: #ffffff;
+      text-align: center;
+      padding: 25px 20px 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .dark-mode header {
+      background-color: #2a2a2a;
+    }
+
+    header h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      color: #2b3e6b;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .dark-mode nav a {
+      color: #f0f0f0;
+    }
+
+    nav a:hover {
+      color: #007acc;
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      margin-top: 30px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .dark-mode .container {
+      background: #2a2a2a;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    h2 {
+      text-align: center;
+      margin: 25px 0 15px;
+    }
+
+    .profile {
+      text-align: center;
+      padding: 40px 20px;
+      border-radius: 15px;
+      background-color: #e9f0ff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .dark-mode .profile {
+      background-color: #3a3a3a;
+    }
+
+    .profile img {
+      border-radius: 50%;
+      border: 3px solid #2b3e6b;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #f5f8ff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .dark-mode table {
+      background-color: #3a3a3a;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #dcdcdc;
+    }
+
+    th {
+      background-color: #dbe8ff;
+    }
+
+    .dark-mode th {
+      background-color: #555;
+    }
+
+    a {
+      color: #007acc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    form {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    input, textarea {
+      margin: 5px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    input[type="submit"] {
+      background-color: #2b3e6b;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+      border: none;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #1d2f4f;
+      input[type="submit"] {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+    }
+
+    .btn-link {
+      display: inline-block;
+      background-color: #007acc;
+      padding: 8px 15px;
+      border-radius: 18px;
+      margin-top: 10px;
+      color: white;
+    }
+
+    .interests {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .interest-card {
+      background: #f0f4ff;
+      padding: 15px;
+      border-radius: 10px;
+      width: 200px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.05);
+      color: #333;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #ffffff;
+      color: #888;
+      font-size: 14px;
+      margin-top: 40px;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #007acc;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #007acc;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .interests {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      table, th, td {
+        font-size: 14px;
+      }
+    }
+  
+  </style>
+</head>
+<body>
+<div id="toast" style="
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #28a745;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  z-index: 1000;
+">
+  ✅ Message sent successfully!
+</div>
+
+  <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+
+  <header>
+    <h1 id="typewriter"></h1>
+    <nav>
+      <a href=""#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#interests">Interests</a>
+      <a href="#contact">Contact</a>
+      <a href="mailto:gaganbatth123@gmail.com">📧 Email</a>
+      <a href="tel:+919876543210">📱 Call</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="profile">
+        <img src="https://cdn.dribbble.com/userupload/5004182/file/original-1e5b376ff4888bed587b44a75845a42c.png?resize=400x0" alt="Your Photo">
+        <p>Hello! I’m <strong>Gagandeep Kaur Batth</strong>, a BTech CSE student who loves web development and cybersecurity.</p>
+      </div>
+
+      <p><a class="btn-link" href="bio.html">👉 Know More About Me</a></p>
+
+      <h2 id="skills">💡 My Skills</h2>
+      <table>
+        <tr><th>Skill</th><th>Level</th></tr>
+        <tr><td>HTML</td><td>Intermediate</td></tr>
+        <tr><td>Networking</td><td>Beginner</td></tr>
+        <tr><td>Python</td><td>Intermediate</td></tr>
+        <tr><td>C++</td><td>Basics</td></tr>
+      </table>
+
+      <h2>👩‍💻 About Me</h2>
+      <p>I’m passionate about web development and eager to explore cybersecurity. My goal is to build solutions that help people in daily life.</p>
+
+      <ul>
+  <li><strong>Portfolio Website</strong> – Showcasing my skills and achievements</li>
+  <li><strong>DoubtDesk</strong> – A class-based doubt-posting platform (Coming soon!)</li>
+</ul>
+<h2 id="contact">📬 Contact Me</h2>
+
+<form id="contactForm">
+  <input type="text" placeholder="Your Name" required>
+  <input type="email" placeholder="Your Email" required>
+  <textarea rows="4" placeholder="Your Message" required></textarea>
+  <input type="submit" value="Send">
+</form>
+
+<!-- Message that appears after form is submitted -->
+<p id="thanksMessage" style="display:none; color: green; font-weight: bold; text-align: center; margin-top: 10px;">
+  ✅ Message sent! Thank you for reaching out.
+</p>
+
+<script>
+  // Attach the script after the form is loaded
+  document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Stop form from actually submitting
+    document.getElementById("thanksMessage").style.display = "block"; // Show message
+    event.target.reset(); // Clear form inputs
+  });
+</script>
+
+
+
+      <h2 id="education">🎓 Education</h2>
+      <table>
+        <tr><th>Course</th><th>Institute</th><th>Year</th></tr>
+        <tr><td>10th</td><td>Guru Hargobind Public Sr.Sec.School, Sidhwan Khurd</td><td>2020–2021</td></tr>
+        <tr><td>12th</td><td>Guru Hargobind Public Sr.Sec.School, Sidhwan Khurd</td><td>2022–2023</td></tr>
+        <tr><td>BTech</td><td>Guru Nanak Dev Engineering College, Ludhiana</td><td>2024–2028</td></tr>
+      </table>
+       <div class="container">
+
+
+      <h2 id="interests">🎯 My Interests</h2>
+      <div class="interests">
+        <div class="interest-card">🍳 <strong>Cooking</strong><br><small>Love exploring recipes and creating unique flavors.</small></div>
+        <div class="interest-card">🎨 <strong>Drawing</strong><br><small>Sketching and expressing creativity through art.</small></div>
+        <div class="interest-card">💻 <strong>Coding</strong><br><small>Building websites and mini-projects in HTML, Python.</small></div>
+        <div class="interest-card">🎮 <strong>Gaming</strong><br><small>Playing action and strategy games to refresh.</small></div>
+      </div>
+
+      <h2 id="societies">🌐 Societies / Committees</h2>
+      <div class="interest-card" style="width: 100%; max-width: 700px; margin: auto;">
+        <ul style="list-style-type: disc; padding-left: 20px; line-height: 1.8;">
+          <li> Active Member – <strong>🎓Causmic Club</strong>, GNDEC</li>
+          <li> Co-Convenor – <strong>🧪The Chemovate Society</strong>, GNDEC</li>
+          <li> Active Member – <strong>💻Computer Society of India</strong>, GNDEC</li>
+          <li> Active Member – <strong>🎭Cultural Committee</strong>, GNDEC</li>
+        </ul>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+  
+  
+   Name:Gagandeep kaur Batth
+  URN:2434967
+   Branch:CSE
+     &copy; 2025 All rights reserved.
+  </footer>
+
+  <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑</button>
+
+  <script>
+    const txt = "🌟 My Awesome Portfolio 🌟";
+    let i = 0;
+    function type() {
+      if (i < txt.length) {
+        document.getElementById("typewriter").innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(type, 80);
+      }
+    }
+    window.onload = type;
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
+</body>
+</html>
